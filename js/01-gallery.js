@@ -20,11 +20,13 @@ return`
 }).join(""); 
 }
 
+
 galleryRef.insertAdjacentHTML('beforeend', GalleryMarkup);
 
 function onClickImgCreateModal(e) {
 	e.preventDefault();
-	if (!e.target.classList.contains("gallery__image")) return;
+	if (!e.target.classList.contains("gallery__image")) {
+	return };
 	const currentImageUrl = e.target.dataset.source;
 
 	const instance = basicLightbox.create(
@@ -46,9 +48,19 @@ function onClickImgCreateModal(e) {
 		const isKeyCode = event.code === "Escape";
 		if (isKeyCode) {
 			instance.close();
+			
+			window.removeEventListener('keydown, onKeyPress');
 		}
 	}
+// 	galleryRef.addEventListener("click", onClickImgCreateModal);
+//   galleryRef.addEventListener("click", onClickImgCreateModal);
 
-  galleryRef.addEventListener("click", onClickImgCreateModal);
+  
 
-  console.log(galleryItems) }
+}
+
+galleryRef.addEventListener("click", onClickImgCreateModal);
+  console.log(galleryItems) 
+
+
+  
